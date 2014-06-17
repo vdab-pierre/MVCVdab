@@ -157,8 +157,13 @@
     <Compile Include="Models\Entities\Verhuur.cs">
       <DependentUpon>MoviesModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FilmBuddy.cs" />
+    <Compile Include="Models\GenreBuddy.cs" />
     <Compile Include="Models\GetFilmsVanGenreViewModel.cs" />
     <Compile Include="Models\GetGenresViewModel.cs" />
+    <Compile Include="Models\Mandje.cs" />
+    <Compile Include="Models\MandjeLijn.cs" />
+    <Compile Include="Models\MandjeViewModel.cs" />
     <Compile Include="Models\VDABLoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -216,9 +221,10 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\VDABLogin.cshtml" />
-    <Content Include="Views\Home\Welkom.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Genre\GetGenres.cshtml" />
     <Content Include="Views\Film\GetFilmsVanGenre.cshtml" />
+    <Content Include="Views\Film\WinkelMandje.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\Entities\MoviesModel.edmx">

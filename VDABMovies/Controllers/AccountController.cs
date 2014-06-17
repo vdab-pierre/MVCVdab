@@ -34,7 +34,7 @@ namespace VDABMovies.Controllers
                         Session["login"] = string.Format("{0} {1}",user.Voornaam, user.Naam);
                         
                         moviesEnities.Dispose(); //zou niet moeten want in using maar connection blijft open ...
-                        return RedirectToAction("Welkom", "Home");
+                        return RedirectToAction("Index", "Home");
                     }
                     else
                     {
@@ -45,6 +45,12 @@ namespace VDABMovies.Controllers
 
             // Iets ging kapot ...
             return View(model);
+        }
+
+        [AllowAnonymous]
+        public ActionResult VDABLogout() {
+            Session.Remove("login");
+            return RedirectToAction("Index", "Home");
         }
 
         #region Helpers
