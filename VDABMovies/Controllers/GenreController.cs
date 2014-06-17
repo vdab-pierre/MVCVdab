@@ -8,12 +8,16 @@ using VDABMovies.Models.Entities;
 
 namespace VDABMovies.Controllers
 {
+    //[VDABAuthorizationFilter]
+    [HandleError]
     public class GenreController : Controller
     {
         private moviesEntities _db = new moviesEntities();
         //Get /Genre/Genres
+        
         public ActionResult GetGenres()
         {
+
             var deGenres = _db.Genres.ToList();
             var vm = new GetGenresViewModel();
             vm.AlleGenres = deGenres;

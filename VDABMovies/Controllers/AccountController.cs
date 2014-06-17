@@ -24,7 +24,6 @@ namespace VDABMovies.Controllers
             if (ModelState.IsValid)
             {
                 //gaan kijken of gebruiker in de db bestaat
-
                 using (var moviesEnities = new moviesEntities())
                 {
                     
