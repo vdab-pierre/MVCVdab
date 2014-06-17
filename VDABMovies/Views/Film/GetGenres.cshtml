@@ -1,0 +1,15 @@
+﻿@model VDABMovies.Models.GetGenresViewModel
+
+@{
+    ViewBag.Title = "GetGenres";
+
+}
+
+<h3>Klik op het gewenste genre:</h3>
+
+<ul>
+    @foreach (var item in Model.AlleGenres)
+    {
+        <li class="genreList">@Html.ActionLink(item.GenreSoort,"GetFilmsVanGenre","Film",new {Id=item.GenreNr},null)</li>
+    }
+</ul>
