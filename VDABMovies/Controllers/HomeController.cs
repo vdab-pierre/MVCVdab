@@ -2,12 +2,12 @@
 
 namespace VDABMovies.Controllers
 {
+    
     public class HomeController : Controller
     {
         
         //[VDABAuthorizationFilter]
-        public ActionResult Welkom() {
-            //ViewBag.loginNaam = Session["login"].ToString();
+        public ActionResult Index() {
             return View();
         }
     }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using VDABMovies.Models;
 using VDABMovies.Models.Entities;
@@ -9,29 +8,63 @@ using VDABMovies.Models.Entities;
 namespace VDABMovies.Controllers
 {
     //[VDABAuthorizationFilter]
+    [HandleError]
     public class FilmController : Controller
     {
         private moviesEntities _db = new moviesEntities();
-        //Get /Film/Genres
-        public ActionResult GetGenres()
+
+        //Get /Films/GetFilmsVanGenre/{genreNr}
+        public ActionResult GetFilmsVanGenre(int Id)
         {
-            var deGenres = _db.Genres.ToList();
-            var vm = new GetGenresViewModel();
-            vm.AlleGenres = deGenres;
+            var genre = _db.Genres.Find(Id);
+            var vm = new GetFilmsVanGenreViewModel();
+            vm.GekozenGenre = new GenreBuddy { Naam = genre.GenreSoort };
+            vm.Films = new List<FilmBuddy>();
+
+            foreach (var f in genre.Films)
+            {
+                vm.Films.Add(new FilmBuddy { Id = f.BandNr, Titel = f.Titel, Prijs = f.Prijs, InVoorraad = f.InVoorraad });
+            }
             return View(vm);
         }
 
-        //Get /Films/GetFilmsVanGenre/{genreNr}
-        public ActionResult GetFilmsVanGenre(int Id) {
-            var genre = _db.Genres.Find(Id);
-            var vm = new GetFilmsVanGenreViewModel();
-            vm.GekozenGenre = genre;
-            return View(vm);
+        [HandleError]
+        public ActionResult Huren(int Id)
+        {
+            try
+            {
+                var deFilm = _db.Films.Find(Id);
+                MandjeLijn mandjeLijn = new MandjeLijn();
+                mandjeLijn.Film = new FilmBuddy { Id = deFilm.BandNr, Titel = deFilm.Titel, Prijs = deFilm.Prijs, InVoorraad = deFilm.InVoorraad };
+                Mandje mandje = new Mandje();
+                if (Session["mandje"] != null)
+                {
+                    mandje = Session["mandje"] as Mandje;
+                    mandje.Lijnen.Add(mandjeLijn);
+                }
+                else
+                {
+                    mandje.Lijnen = new List<MandjeLijn>();
+                    mandje.Lijnen.Add(mandjeLijn);
+                }
+                Session["mandje"] = mandje;
+
+                return RedirectToAction("WinkelMandje", "Winkel");
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
+
+
         protected override void Dispose(bool disposing)
         {
-            if (disposing) {
-                if (_db != null) {
+            if (disposing)
+            {
+                if (_db != null)
+                {
                     _db.Dispose();
                 }
             }
