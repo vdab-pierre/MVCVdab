@@ -48,9 +48,8 @@ namespace VDABMovies.Controllers
                     mandje.Lijnen.Add(mandjeLijn);
                 }
                 Session["mandje"] = mandje;
-                MandjeViewModel vm = new MandjeViewModel();
-                vm.WinkelMandje = mandje;
-                return View("WinkelMandje",vm);
+
+                return RedirectToAction("WinkelMandje", "Winkel");
             }
             catch (Exception)
             {

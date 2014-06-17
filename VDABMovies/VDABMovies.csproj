@@ -127,6 +127,7 @@
     <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VDABAuthorizationFilterAttribute.cs" />
+    <Compile Include="Controllers\WinkelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -224,7 +225,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Genre\GetGenres.cshtml" />
     <Content Include="Views\Film\GetFilmsVanGenre.cshtml" />
-    <Content Include="Views\Film\WinkelMandje.cshtml" />
+    <Content Include="Views\Winkel\WinkelMandje.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\Entities\MoviesModel.edmx">
@@ -242,7 +243,9 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\brol\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
