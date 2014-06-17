@@ -124,6 +124,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FilmController.cs" />
+    <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VDABAuthorizationFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -216,7 +217,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\VDABLogin.cshtml" />
     <Content Include="Views\Home\Welkom.cshtml" />
-    <Content Include="Views\Film\GetGenres.cshtml" />
+    <Content Include="Views\Genre\GetGenres.cshtml" />
     <Content Include="Views\Film\GetFilmsVanGenre.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +236,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
