@@ -165,7 +165,6 @@
     <Compile Include="Models\Mandje.cs" />
     <Compile Include="Models\MandjeLijn.cs" />
     <Compile Include="Models\MandjeViewModel.cs" />
-    <Compile Include="Models\TestGitForgotToAdd.cs" />
     <Compile Include="Models\VDABLoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
