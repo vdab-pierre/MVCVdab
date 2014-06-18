@@ -1,0 +1,15 @@
+﻿@model VDABMovies.Models.FilmVerwijderenViewModel
+@{
+    ViewBag.Title = "FilmVerwijderenUitMandje";
+}
+
+<h2>Verwijder gehuurde film</h2>
+<p>Ben je zeker dat je "@Model.TeVerwijderenFilm.Titel" niet wilt huren?</p>
+<p>
+    @using (Html.BeginForm("FilmVerwijderenUitMandje", "Winkel", new RouteValueDictionary(new { Id = @Model.TeVerwijderenFilm.Id }), FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.HiddenFor(m => m.TeVerwijderenFilm.Id)
+        <input type="submit" value="JA" class="fakeLink" />
+    }@Html.ActionLink("NEE", "WinkelMandje", "Winkel")
+</p>
+

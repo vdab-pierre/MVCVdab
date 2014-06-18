@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VDABMovies.Models;
+using VDABMovies.Models.Entities;
 
 namespace VDABMovies.Controllers
 {
@@ -22,7 +23,31 @@ namespace VDABMovies.Controllers
             return View(vm);
         }
 
-        public ActionResult FilmVerwijderenUitMandje(int Id)
+        [HttpGet]
+        public ActionResult FilmVerwijderenUitMandje(int Id) {
+
+            if (Session["mandje"] != null)
+            {
+                Mandje mandje = null;
+                mandje = Session["mandje"] as Mandje;
+                var deLijn = mandje.Lijnen.Where(l => l.Film.Id == Id).FirstOrDefault();
+                if (deLijn != null)
+                {
+                    FilmVerwijderenViewModel vm = new FilmVerwijderenViewModel { TeVerwijderenFilm = new FilmBuddy { Id = deLijn.Film.Id, Titel = deLijn.Film.Titel, Prijs = deLijn.Film.Prijs, InVoorraad = deLijn.Film.InVoorraad } };
+                    return View(vm);
+                }
+                else {
+                    return View("Error");
+                }
+            }
+            else {
+                return View("Error");
+            }
+                        
+        }
+        [ActionName("FilmVerwijderenUitMandje")]
+        [HttpPost]
+        public ActionResult PostFilmVerwijderenUitMandje(int Id)
         {
             Mandje mandje = null;
             if (Session["mandje"] != null)
@@ -41,7 +66,21 @@ namespace VDABMovies.Controllers
 
             }
             return RedirectToAction("Index", "Home");
+        }
 
+        public ActionResult Afrekenen() {
+            Mandje mandje = null;
+            Klant deKlant = null;
+            if (Session["mandje"] != null)
+            {
+                mandje = Session["mandje"] as Mandje;
+            }
+            if (Session["login"] != null)
+            {
+                deKlant = Session["login"] as Klant;
+            }
+            var vm = new AfrekenenViewModel { Klant = deKlant, Winkelmandje = mandje };
+            return View(vm);
         }
     }
 }

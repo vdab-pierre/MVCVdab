@@ -1,6 +1,6 @@
-﻿
+﻿@model VDABMovies.Models._LoginPartialViewModel
 @if (Session["login"] != null)
 {
-    <p>Welkom @Session["login"].ToString()</p>
+    <p>Welkom @Model.Klant.Voornaam @Model.Klant.Naam </p>
     @Html.ActionLink("Uitloggen", "VDABLogout", "Account")
 }

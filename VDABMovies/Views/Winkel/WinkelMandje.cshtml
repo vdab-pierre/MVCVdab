@@ -18,10 +18,12 @@
             <tr>
                 <td>@l.Film.Titel</td>
                 <td>@Html.DisplayFor(m=>l.Film.Prijs)</td>
-                <td align="right">@Html.ActionLink("Verwijderen", "FilmVerwijderenUitMandje", "Winkel", new { Id = l.Film.Id }, null)</td>
+                <td align="right">@Html.ActionLink("Verwijderen", "FilmVerwijderenUitMandje", "Winkel", new { Id = l.Film.Id },null)</td>
+                
             </tr>
         }
     </tbody>
 </table>
 <p>@Html.ActionLink("Verder Winkelen", "GetGenres", "Genre")</p>
+<p>@Html.ActionLink("Afrekenen", "Afrekenen", "Winkel")</p>
 

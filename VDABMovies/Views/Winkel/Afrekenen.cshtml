@@ -1,0 +1,29 @@
+﻿@model VDABMovies.Models.AfrekenenViewModel
+@{
+    ViewBag.Title = "Afrekenen";
+}
+
+<h2>Afrekenen</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Titel</th>
+            <th>Prijs</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var l in Model.Winkelmandje.Lijnen)
+        {
+            <tr>
+                <td>@l.Film.Titel</td>
+                <td>@Html.DisplayFor(m => l.Film.Prijs)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+wordt gefactureerd aan:
+
+@Html.DisplayFor(m=>m.Klant)
+

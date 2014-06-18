@@ -31,7 +31,7 @@ namespace VDABMovies.Controllers
                     if (user != null)
                     {
                         // user bestaat, session login starten met naam gebruiker en logged in gaan
-                        Session["login"] = string.Format("{0} {1}",user.Voornaam, user.Naam);
+                        Session["login"] = user;
                         
                         moviesEnities.Dispose(); //zou niet moeten want in using maar connection blijft open ...
                         return RedirectToAction("Index", "Home");

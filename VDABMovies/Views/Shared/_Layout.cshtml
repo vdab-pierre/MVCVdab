@@ -12,11 +12,20 @@
     <div id="header">
         <a href="/Home/Index"><img src="~/Content/Images/videoVerhuur.jpg" /></a>
     </div>
+    @{
+        if (Session["login"] != null)
+        {
+            var deKlant = Session["login"] as VDABMovies.Models.Entities.Klant;
+            VDABMovies.Models._LoginPartialViewModel vm = new VDABMovies.Models._LoginPartialViewModel { Klant=deKlant };
+        }
+        
+    }
     <div>@Html.Partial("~/Views/Shared/_LoginPartial.cshtml")</div>
     <div>@RenderBody()</div>
     
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

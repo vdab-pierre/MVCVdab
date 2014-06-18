@@ -131,6 +131,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AfrekenenViewModel.cs" />
     <Compile Include="Models\Entities\Film.cs">
       <DependentUpon>MoviesModel.tt</DependentUpon>
     </Compile>
@@ -159,6 +160,7 @@
       <DependentUpon>MoviesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\FilmBuddy.cs" />
+    <Compile Include="Models\FilmVerwijderenViewModel.cs" />
     <Compile Include="Models\GenreBuddy.cs" />
     <Compile Include="Models\GetFilmsVanGenreViewModel.cs" />
     <Compile Include="Models\GetGenresViewModel.cs" />
@@ -166,6 +168,7 @@
     <Compile Include="Models\MandjeLijn.cs" />
     <Compile Include="Models\MandjeViewModel.cs" />
     <Compile Include="Models\VDABLoginViewModel.cs" />
+    <Compile Include="Models\_LoginPartialViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -226,6 +229,8 @@
     <Content Include="Views\Genre\GetGenres.cshtml" />
     <Content Include="Views\Film\GetFilmsVanGenre.cshtml" />
     <Content Include="Views\Winkel\WinkelMandje.cshtml" />
+    <Content Include="Views\Winkel\FilmVerwijderenUitMandje.cshtml" />
+    <Content Include="Views\Winkel\Afrekenen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\Entities\MoviesModel.edmx">

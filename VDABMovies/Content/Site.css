@@ -23,4 +23,17 @@ textarea {
     .genreList > a {
         text-decoration:underline;
     }
+.fakeLink{
+border: 0px;
+background-color: transparent;
+color: #428bca;
+cursor: hand;
+} 
+.fakelink:hover{
+text-decoration: underline;
+}
+.form-horizontal {
+    display:inline;
+}
+
 
