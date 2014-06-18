@@ -33,22 +33,26 @@ namespace VDABMovies.Controllers
         {
             try
             {
-                
-                var deFilm = _db.Films.Find(Id);
-                
-                MandjeLijn mandjeLijn = new MandjeLijn();
-                mandjeLijn.Film = new FilmBuddy { Id = deFilm.BandNr, Titel = deFilm.Titel, Prijs = deFilm.Prijs, InVoorraad = deFilm.InVoorraad };
                 Mandje mandje = new Mandje();
+                MandjeLijn mandjeLijn = new MandjeLijn();
+                
                 if (Session["mandje"] != null)
                 {
                     mandje = Session["mandje"] as Mandje;
-                    mandje.Lijnen.Add(mandjeLijn);
+                    if(mandje.Lijnen.Where(l => l.Film.Id == Id).FirstOrDefault()==null){
+                        var deFilm = _db.Films.Find(Id);
+                        mandjeLijn.Film = new FilmBuddy { Id = deFilm.BandNr, Titel = deFilm.Titel, Prijs = deFilm.Prijs, InVoorraad = deFilm.InVoorraad };
+                        mandje.Lijnen.Add(mandjeLijn);
+                    }
                 }
                 else
                 {
                     mandje.Lijnen = new List<MandjeLijn>();
+                    var deFilm = _db.Films.Find(Id);
+                    mandjeLijn.Film = new FilmBuddy { Id = deFilm.BandNr, Titel = deFilm.Titel, Prijs = deFilm.Prijs, InVoorraad = deFilm.InVoorraad };
                     mandje.Lijnen.Add(mandjeLijn);
                 }
+                
                 Session["mandje"] = mandje;
 
                 return RedirectToAction("WinkelMandje", "Winkel");
