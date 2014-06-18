@@ -33,9 +33,10 @@ namespace VDABMovies.Controllers
         {
             try
             {
+                //enkel film toevoegen aan mandje indien nog niet in mandje
                 var deFilm = _db.Films.Find(Id);
                 MandjeLijn mandjeLijn = new MandjeLijn();
-                mandjeLijn.Film = new FilmBuddy { Id = deFilm.BandNr, Titel = deFilm.Titel, Prijs = deFilm.Prijs, InVoorraad = deFilm.InVoorraad };
+                mandjeLijn.Film = new FilmBuddy { Id = deFilm.BandNr, Titel = deFilm.Titel, Prijs = deFilm.Prijs, InVoorr aad = deFilm.InVoorraad };
                 Mandje mandje = new Mandje();
                 if (Session["mandje"] != null)
                 {
