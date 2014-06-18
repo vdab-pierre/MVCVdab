@@ -13,5 +13,6 @@ namespace VDABMovies.Models
         [DisplayFormat(DataFormatString="{0:C}")]
         public decimal Prijs { get; set; }
         public int InVoorraad { get; set; }
+        public int BrolTest { get; set; }
     }
 }
