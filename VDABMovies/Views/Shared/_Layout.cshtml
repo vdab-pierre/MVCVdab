@@ -13,14 +13,13 @@
         <a href="/Home/Index"><img src="~/Content/Images/videoVerhuur.jpg" /></a>
     </div>
     @{
-        if (Session["login"] != null)
-        {
-            var deKlant = Session["login"] as VDABMovies.Models.Entities.Klant;
-            VDABMovies.Models._LoginPartialViewModel vm = new VDABMovies.Models._LoginPartialViewModel { Klant=deKlant };
-        }
+        
+    var deKlant = Session["login"]==null?Session["login"] as VDABMovies.Models.Entities.Klant:null;
+    var vm = new VDABMovies.Models._LoginPartialViewModel { Klant=deKlant };
+        
         
     }
-    <div>@Html.Partial("~/Views/Shared/_LoginPartial.cshtml")</div>
+    <div>@Html.Partial("~/Views/Shared/_LoginPartial.cshtml",vm)</div>
     <div>@RenderBody()</div>
     
 
