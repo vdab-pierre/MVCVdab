@@ -20,10 +20,18 @@ namespace VDABMovies.Controllers
             var vm = new GetFilmsVanGenreViewModel();
             vm.GekozenGenre = new GenreBuddy { Naam = genre.GenreSoort };
             vm.Films = new List<FilmBuddy>();
+            
+            Mandje mandje = new Mandje();
+            if (Session["mandje"] != null)
+            {
+                mandje = Session["mandje"] as Mandje;
+                
+            }
 
             foreach (var f in genre.Films)
             {
-                vm.Films.Add(new FilmBuddy { Id = f.BandNr, Titel = f.Titel, Prijs = f.Prijs, InVoorraad = f.InVoorraad });
+                bool InHetMandje = Session["mandje"] != null && mandje.Lijnen.Where(l => l.Film.Id == f.BandNr).FirstOrDefault() != null;
+                vm.Films.Add(new FilmBuddy { Id = f.BandNr, Titel = f.Titel, Prijs = f.Prijs, InVoorraad = f.InVoorraad,InMandje=InHetMandje });
             }
             return View(vm);
         }
