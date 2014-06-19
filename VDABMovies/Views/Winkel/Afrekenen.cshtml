@@ -23,7 +23,8 @@
     </tbody>
 </table>
 
-wordt gefactureerd aan:
+<h4>wordt gefactureerd aan:</h4>
 
-@Html.DisplayFor(m=>m.Klant.Naam)
-
+<p>@Html.DisplayFor(m => m.Klant.Naam) @Html.DisplayFor(m => m.Klant.Voornaam)</p>
+@Html.DisplayFor(m => m.Klant.Straat_Nr)<br/>
+@Html.DisplayFor(m => m.Klant.PostCode) @Html.DisplayFor(m => m.Klant.Gemeente)

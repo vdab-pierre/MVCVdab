@@ -1,6 +1,5 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top:1em;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -20,20 +19,24 @@ textarea {
     zoom:1;
     *display:inline; /* this fix is needed for IE7- */
 }
-    .genreList > a {
-        text-decoration:underline;
-    }
+a {
+    text-decoration:underline;
+}
 .fakeLink{
 border: 0px;
 background-color: transparent;
 color: #428bca;
-cursor: hand;
+cursor:pointer;
+text-decoration:underline;
 } 
-.fakelink:hover{
-text-decoration: underline;
-}
+
 .form-horizontal {
     display:inline;
 }
-
+#header{
+    padding-bottom:1em;
+}
+.filmTitel {
+    width:250px;
+}
 

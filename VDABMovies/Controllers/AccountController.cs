@@ -49,7 +49,11 @@ namespace VDABMovies.Controllers
 
         [AllowAnonymous]
         public ActionResult VDABLogout() {
-            Session.Remove("login");
+            if (Session["login"] != null || Session["mandje"] != null)
+            {
+                Session.RemoveAll();
+            }
+            
             return RedirectToAction("Index", "Home");
         }
 

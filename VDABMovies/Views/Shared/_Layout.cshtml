@@ -13,10 +13,11 @@
         <a href="/Home/Index"><img src="~/Content/Images/videoVerhuur.jpg" /></a>
     </div>
     
-    <div>Welkom @if (Session["login"] != null) {
-                    var klant = (VDABMovies.Models.Entities.Klant)Session["login"];
-                    @klant.Naam
-                }
+    <div> @if (Session["login"] != null)
+    {
+        var klant = (VDABMovies.Models.Entities.Klant)Session["login"];
+        <p>Welkom @klant.Voornaam @klant.Naam @Html.ActionLink("Afmelden", "VDABLogout", "Account")</p>
+    }
                 </div>
     <div>@RenderBody()</div>
     

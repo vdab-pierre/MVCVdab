@@ -19,7 +19,7 @@
     <tbody>
     @foreach (var f in Model.Films) { 
         <tr>
-            <td>@f.Titel</td>
+            <td class="filmTitel">@f.Titel</td>
             <td>@Html.DisplayFor(m=>f.Prijs)</td>
             <td align="center">@f.InVoorraad</td>
             <td>@if (!f.InMandje){
