@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using VDABMovies.Models.Entities;
 
 namespace VDABMovies.Controllers
 {
@@ -6,7 +7,7 @@ namespace VDABMovies.Controllers
     public class HomeController : Controller
     {
         
-        //[VDABAuthorizationFilter]
+        [VDABAuthorizationFilter]
         public ActionResult Index() {
             return View();
         }

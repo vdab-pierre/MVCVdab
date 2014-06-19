@@ -8,6 +8,7 @@ using VDABMovies.Models.Entities;
 
 namespace VDABMovies.Controllers
 {
+    [VDABAuthorizationFilter]
     public class WinkelController : Controller
     {
         // GET: Winkel

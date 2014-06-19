@@ -8,7 +8,7 @@ using VDABMovies.Models.Entities;
 
 namespace VDABMovies.Controllers
 {
-    //[VDABAuthorizationFilter]
+    [VDABAuthorizationFilter]
     [HandleError]
     public class GenreController : Controller
     {
