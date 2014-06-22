@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Data.Entity.Core;
+using System.Linq;
 using System.Web.Mvc;
 using VDABMovies.Models;
 using VDABMovies.Models.Entities;
@@ -6,6 +7,7 @@ using VDABMovies.Models.Entities;
 namespace VDABMovies.Controllers
 {
     [Authorize]
+    [HandleError]
     public class AccountController : Controller
     {
         [AllowAnonymous]
@@ -26,20 +28,27 @@ namespace VDABMovies.Controllers
                 //gaan kijken of gebruiker in de db bestaat
                 using (var moviesEnities = new moviesEntities())
                 {
+                    try
+                    {
+                        var user = moviesEnities.Klanten.Where(u => u.Naam == model.Naam && u.PostCode.Equals(model.Postcode)).FirstOrDefault();
+                        if (user != null)
+                        {
+                            // user bestaat, session login starten met naam gebruiker en logged in gaan
+                            Session["login"] = user;
+
+                            //moviesEnities.Dispose(); //zou niet moeten want in using maar connection blijft open ...
+                            return RedirectToAction("Index", "Home");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", "Naam - Postcode niet gevonden in systeem.");
+                        }
+                    }
+                    catch (EntityException)
+                    {
+                        throw;
+                    }
                     
-                    var user = moviesEnities.Klanten.Where(u => u.Naam == model.Naam && u.PostCode.Equals(model.Postcode)).FirstOrDefault();
-                    if (user != null)
-                    {
-                        // user bestaat, session login starten met naam gebruiker en logged in gaan
-                        Session["login"] = user;
-                        
-                        moviesEnities.Dispose(); //zou niet moeten want in using maar connection blijft open ...
-                        return RedirectToAction("Index", "Home");
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("", "Naam - Postcode niet gevonden in systeem.");
-                    }
                 }
             }
 
