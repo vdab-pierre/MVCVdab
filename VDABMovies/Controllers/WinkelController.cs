@@ -80,6 +80,13 @@ namespace VDABMovies.Controllers
             {
                 deKlant = Session["login"] as Klant;
             }
+
+
+            //db aanpassen!
+            //inVoorraad wordt met 1 verminderd en UitVoorraad met 1 vermeerderd
+
+            
+
             var vm = new AfrekenenViewModel { Klant = deKlant, Winkelmandje = mandje };
             return View(vm);
         }
