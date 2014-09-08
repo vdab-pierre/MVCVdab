@@ -7,8 +7,8 @@ using VDABMovies.Models.Entities;
 
 namespace VDABMovies.Controllers
 {
-    [VDABAuthorizationFilter]
-    [HandleError]
+    //[VDABAuthorizationFilter]
+    //[HandleError]
     public class FilmController : Controller
     {
         private moviesEntities _db = new moviesEntities();

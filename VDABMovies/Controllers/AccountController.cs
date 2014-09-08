@@ -6,8 +6,8 @@ using VDABMovies.Models.Entities;
 
 namespace VDABMovies.Controllers
 {
-    [Authorize]
-    [HandleError]
+    //[Authorize]
+    //[HandleError]
     public class AccountController : Controller
     {
         [AllowAnonymous]

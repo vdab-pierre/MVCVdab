@@ -8,12 +8,15 @@ using VDABMovies.Models.Entities;
 
 namespace VDABMovies.Controllers
 {
-    //[VDABAuthorizationFilter]
+    [VDABAuthorizationFilter]
     public class WinkelController : Controller
     {
         private moviesEntities _db = new moviesEntities();
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> DEV
         // GET: Winkel
         public ActionResult WinkelMandje()
         {
@@ -84,6 +87,12 @@ namespace VDABMovies.Controllers
                 deKlant = Session["login"] as Klant;
             }
 
+<<<<<<< HEAD
+            //db aanpassen!
+            //inVoorraad wordt met 1 verminderd en UitVoorraad met 1 vermeerderd
+
+
+=======
 
             //db aanpassen!
             //inVoorraad wordt met 1 verminderd en UitVoorraad met 1 vermeerderd
@@ -96,6 +105,7 @@ namespace VDABMovies.Controllers
                 deFilm.TotaalVerhuurd++;
                 _db.SaveChanges();
             }
+>>>>>>> DEV
 
             var vm = new AfrekenenViewModel { Klant = deKlant, Winkelmandje = mandje };
             return View(vm);
