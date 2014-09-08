@@ -11,6 +11,9 @@ namespace VDABMovies.Controllers
     [VDABAuthorizationFilter]
     public class WinkelController : Controller
     {
+        private moviesEntities _db = new moviesEntities();
+
+
         // GET: Winkel
         public ActionResult WinkelMandje()
         {
@@ -85,10 +88,29 @@ namespace VDABMovies.Controllers
             //db aanpassen!
             //inVoorraad wordt met 1 verminderd en UitVoorraad met 1 vermeerderd
 
-            
+            foreach (var l in mandje.Lijnen) {
+                //l.Film.Id
+                var deFilm = _db.Films.Find(l.Film.Id);
+                deFilm.InVoorraad --;
+                deFilm.UitVoorraad ++;
+                deFilm.TotaalVerhuurd++;
+                _db.SaveChanges();
+            }
 
             var vm = new AfrekenenViewModel { Klant = deKlant, Winkelmandje = mandje };
             return View(vm);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (_db != null)
+                {
+                    _db.Dispose();
+                }
+            }
+            base.Dispose(disposing);
         }
     }
 }
