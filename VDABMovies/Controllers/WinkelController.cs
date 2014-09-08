@@ -89,7 +89,7 @@ namespace VDABMovies.Controllers
             //inVoorraad wordt met 1 verminderd en UitVoorraad met 1 vermeerderd
 
             foreach (var l in mandje.Lijnen) {
-                //l.Film.Id
+                
                 var deFilm = _db.Films.Find(l.Film.Id);
                 deFilm.InVoorraad --;
                 deFilm.UitVoorraad ++;
