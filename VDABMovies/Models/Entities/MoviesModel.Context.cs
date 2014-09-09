@@ -7,11 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VDABMovies.Models.Entities
+namespace VDABMovies.ViewModels.Entities
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using VDABMovies.Models.Entities;
     
     public partial class moviesEntities : DbContext
     {

@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using VDABMovies.Models;
 using VDABMovies.Models.Entities;
+using VDABMovies.ViewModels;
+using VDABMovies.ViewModels.Entities;
 
 namespace VDABMovies.Controllers
 {

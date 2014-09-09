@@ -131,7 +131,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AfrekenenViewModel.cs" />
+    <Compile Include="ViewModels\AfrekenenViewModel.cs" />
     <Compile Include="Models\Entities\Film.cs">
       <DependentUpon>MoviesModel.tt</DependentUpon>
     </Compile>
@@ -160,15 +160,15 @@
       <DependentUpon>MoviesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\FilmBuddy.cs" />
-    <Compile Include="Models\FilmVerwijderenViewModel.cs" />
+    <Compile Include="ViewModels\FilmVerwijderenViewModel.cs" />
     <Compile Include="Models\GenreBuddy.cs" />
-    <Compile Include="Models\GetFilmsVanGenreViewModel.cs" />
-    <Compile Include="Models\GetGenresViewModel.cs" />
+    <Compile Include="ViewModels\GetFilmsVanGenreViewModel.cs" />
+    <Compile Include="ViewModels\GetGenresViewModel.cs" />
     <Compile Include="Models\Mandje.cs" />
     <Compile Include="Models\MandjeLijn.cs" />
-    <Compile Include="Models\MandjeViewModel.cs" />
-    <Compile Include="Models\VDABLoginViewModel.cs" />
-    <Compile Include="Models\_LoginPartialViewModel.cs" />
+    <Compile Include="ViewModels\MandjeViewModel.cs" />
+    <Compile Include="ViewModels\VDABLoginViewModel.cs" />
+    <Compile Include="ViewModels\_LoginPartialViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

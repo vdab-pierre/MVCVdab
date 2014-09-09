@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using VDABMovies.Models.Entities;
 
-namespace VDABMovies.Models
+namespace VDABMovies.ViewModels
 {
     public class GetGenresViewModel
     {
