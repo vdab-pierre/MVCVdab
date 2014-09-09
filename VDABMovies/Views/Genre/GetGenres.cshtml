@@ -10,7 +10,7 @@
 <ul>
     @foreach (var item in Model.AlleGenres)
     {
-        <li class="genreList">@Html.ActionLink(item.GenreSoort,"GetFilmsVanGenre","Film",new {Id=item.GenreNr},null)</li>
+        <li class="genreList">@Html.ActionLink(item.GenreSoort,"GetFilmsVanGenre","Film",new {GenreId=item.GenreNr},null)</li>
     }
 </ul>
 <h3>... of selecteer hieronder een genre en druk op de "go" knop.</h3>
