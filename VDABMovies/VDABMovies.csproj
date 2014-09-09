@@ -126,12 +126,12 @@
     <Compile Include="Controllers\FilmController.cs" />
     <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\VDABAuthorizationFilterAttribute.cs" />
+    <Compile Include="Filters\VDABAuthorizationFilterAttribute.cs" />
     <Compile Include="Controllers\WinkelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AfrekenenViewModel.cs" />
+    <Compile Include="ViewModels\AfrekenenViewModel.cs" />
     <Compile Include="Models\Entities\Film.cs">
       <DependentUpon>MoviesModel.tt</DependentUpon>
     </Compile>
@@ -160,15 +160,15 @@
       <DependentUpon>MoviesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\FilmBuddy.cs" />
-    <Compile Include="Models\FilmVerwijderenViewModel.cs" />
+    <Compile Include="ViewModels\FilmVerwijderenViewModel.cs" />
     <Compile Include="Models\GenreBuddy.cs" />
-    <Compile Include="Models\GetFilmsVanGenreViewModel.cs" />
-    <Compile Include="Models\GetGenresViewModel.cs" />
+    <Compile Include="ViewModels\GetFilmsVanGenreViewModel.cs" />
+    <Compile Include="ViewModels\GetGenresViewModel.cs" />
     <Compile Include="Models\Mandje.cs" />
     <Compile Include="Models\MandjeLijn.cs" />
-    <Compile Include="Models\MandjeViewModel.cs" />
-    <Compile Include="Models\VDABLoginViewModel.cs" />
-    <Compile Include="Models\_LoginPartialViewModel.cs" />
+    <Compile Include="ViewModels\MandjeViewModel.cs" />
+    <Compile Include="ViewModels\VDABLoginViewModel.cs" />
+    <Compile Include="ViewModels\_LoginPartialViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +198,7 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -210,7 +211,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

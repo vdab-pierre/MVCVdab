@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using VDABMovies.Models;
-using VDABMovies.Models.Entities;
+using VDABMovies.ViewModels;
+using VDABMovies.ViewModels.Entities;
 
 namespace VDABMovies.Controllers
 {
-    [VDABAuthorizationFilter]
-    [HandleError]
+    //[VDABAuthorizationFilter]
+    //[HandleError]
     public class GenreController : Controller
     {
         private moviesEntities _db = new moviesEntities();

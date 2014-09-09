@@ -6,7 +6,7 @@ namespace VDABMovies.Controllers
     public class HomeController : Controller
     {
         
-        [VDABAuthorizationFilter]
+        //[VDABAuthorizationFilter]
         public ActionResult Index() {
             return View();
         }
