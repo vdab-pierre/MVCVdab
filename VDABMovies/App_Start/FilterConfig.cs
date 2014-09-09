@@ -9,7 +9,7 @@ namespace VDABMovies
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
-            filters.Add(new VDABAuthorizationFilterAttribute());
+            //filters.Add(new VDABAuthorizationFilterAttribute());
         }
     }
 }

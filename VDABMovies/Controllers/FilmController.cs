@@ -15,11 +15,11 @@ namespace VDABMovies.Controllers
         private moviesEntities _db = new moviesEntities();
 
         //Get /Films/GetFilmsVanGenre/{genreNr}
-        public ActionResult GetFilmsVanGenre(int Id)
+        public ActionResult GetFilmsVanGenre(int GenreId)
         {
             try
             {
-                var genre = _db.Genres.Find(Id);
+                var genre = _db.Genres.Find(GenreId);
                 var vm = new GetFilmsVanGenreViewModel();
                 vm.GekozenGenre = new GenreBuddy { Naam = genre.GenreSoort };
                 vm.Films = new List<FilmBuddy>();

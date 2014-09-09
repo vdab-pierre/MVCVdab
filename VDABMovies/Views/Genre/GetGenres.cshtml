@@ -13,3 +13,9 @@
         <li class="genreList">@Html.ActionLink(item.GenreSoort,"GetFilmsVanGenre","Film",new {Id=item.GenreNr},null)</li>
     }
 </ul>
+<h3>... of selecteer hieronder een genre en druk op de knop.</h3>
+@using (Html.BeginForm("GetFilmsVanGenre", "Film",FormMethod.Get))
+{
+    @Html.DropDownListFor(m => m.GenreId, Model.DeGenres)
+    <input type="submit" value="go"/>
+}
