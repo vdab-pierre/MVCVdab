@@ -22,7 +22,7 @@
             <td class="filmTitel">@f.Titel</td>
             <td>@Html.DisplayFor(m=>f.Prijs)</td>
             <td align="center">@f.InVoorraad</td>
-            <td>@if (!f.InMandje){
+            <td>@if (!f.InMandje && f.InVoorraad > 0){
                     @Html.ActionLink("Huren", "Huren", "Film", new { Id = f.Id }, null);
                 }
             </td>

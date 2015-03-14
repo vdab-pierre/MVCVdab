@@ -53,27 +53,40 @@ namespace VDABMovies.Controllers
             {
                 Mandje mandje = new Mandje();
                 MandjeLijn mandjeLijn = new MandjeLijn();
-                
+
+#region mandje
                 if (Session["mandje"] != null)
                 {
                     mandje = Session["mandje"] as Mandje;
-                    if(mandje.Lijnen.Where(l => l.Film.Id == Id).FirstOrDefault()==null){
-                        var deFilm = _db.Films.Find(Id);
-                        mandjeLijn.Film = new FilmBuddy { Id = deFilm.BandNr, Titel = deFilm.Titel, Prijs = deFilm.Prijs, InVoorraad = deFilm.InVoorraad };
-                        mandje.Lijnen.Add(mandjeLijn);
-                    }
                 }
                 else
                 {
                     mandje.Lijnen = new List<MandjeLijn>();
-                    var deFilm = _db.Films.Find(Id);
-                    mandjeLijn.Film = new FilmBuddy { Id = deFilm.BandNr, Titel = deFilm.Titel, Prijs = deFilm.Prijs, InVoorraad = deFilm.InVoorraad };
-                    mandje.Lijnen.Add(mandjeLijn);
                 }
+#endregion
+
+#region filmtoevoegen
+                var deFilm = _db.Films.Find(Id);
+
+                if (deFilm != null && deFilm.InVoorraad > 0)
+                {
+                    if (mandje.Lijnen.Where(l => l.Film.Id == Id).FirstOrDefault() == null)
+                    {
+                        mandjeLijn.Film = new FilmBuddy { Id = deFilm.BandNr, Titel = deFilm.Titel, Prijs = deFilm.Prijs, InVoorraad = deFilm.InVoorraad };
+                        mandje.Lijnen.Add(mandjeLijn);
+                    }
+                }
+#endregion
                 
                 Session["mandje"] = mandje;
 
-                return RedirectToAction("WinkelMandje", "Winkel");
+                if (mandje.Lijnen.Count > 0)
+                {
+                    return RedirectToAction("WinkelMandje", "Winkel");
+                }
+                else {
+                    return RedirectToAction("GetGenres", "Genre");
+                }
             }
             catch (Exception)
             {
